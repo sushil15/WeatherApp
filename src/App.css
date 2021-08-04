@@ -1,4 +1,5 @@
 
+
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap');
 
 *{
@@ -288,8 +289,28 @@ font-weight: bold;
 }
 
 /* media query */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 576px) {
   .weather_div,.forecast_div {
-    margin-top:75px;
+    margin-top:0px;
+    width:100%;
+    height:600px;
+  }
+  .weather_img img{
+    margin-top: 0px;
+  }
+  .top_div{
+    margin-top: 30px;
+  }
+  .input_div input{
+    width:150px;
+  }
+  .button_div button{
+    padding: 1px 16px;
+  }
+  .weather_info{
+    height:190px;
+  }
+  .min_temp_p2, .max_temp_p2, .pres_p2 {
+    font-size: 18px;
   }
 }
