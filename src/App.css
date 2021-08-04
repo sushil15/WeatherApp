@@ -313,4 +313,7 @@ font-weight: bold;
   .min_temp_p2, .max_temp_p2, .pres_p2 {
     font-size: 18px;
   }
+  .forecast_header{
+    margin-top: 15px;
+  }
 }
