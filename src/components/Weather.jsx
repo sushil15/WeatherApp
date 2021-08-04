@@ -184,7 +184,7 @@ setForecast={setForecast} dataForFc={data} city={city}/>
     <div className="col-12 weather_info text-center">
         <p className="weather_type">It's {data.weatherType}</p>
         <p onClick={()=>setForecast(true)} className="forecast_btn">see forecast</p>
-        <p className="temp">{data.mainTemp}<sup>0</sup></p>
+        <p className="temp">{data.mainTemp}<sup>0</sup>c</p>
         <div className=" weather_info_2">
             <div>
              <i className="fas fa-wind"></i>
@@ -200,12 +200,12 @@ setForecast={setForecast} dataForFc={data} city={city}/>
         <div className="min_temp bottom_div">
            <p className="min_temp_p1">Min Temp</p>
            <i className="fas fa-temperature-low"></i>
-           <p className="min_temp_p2">{data.minTemp}<sup>0</sup></p>
+           <p className="min_temp_p2">{data.minTemp}<sup>0</sup>c</p>
         </div>
         <div className="max_temp bottom_div"> 
           <p className="max_temp_p1">Max Temp</p>
            <i className="fas fa-temperature-high"></i>
-           <p className="max_temp_p2">{data.maxTemp}<sup>0</sup></p> 
+           <p className="max_temp_p2">{data.maxTemp}<sup>0</sup>c</p> 
         </div>
         <div className="pres bottom_div"> 
            <p className="pres_p1">Pressure</p>
