@@ -225,9 +225,6 @@ font-weight: bold;
   background-color:#2E3341;
   border-radius: 5px;
 }
-.day_row p{
-  font-size:14px;
-}
 .fc_weather_icon{
   width:40px;
   height:40px;
@@ -240,6 +237,7 @@ font-weight: bold;
 }
 .fc_col p{
   margin-top: 15px;
+  font-size:14px;
 }
 
 .forecast_header p{
@@ -318,5 +316,8 @@ font-weight: bold;
   }
   .forecast_header{
     margin-top: 15px;
+  }
+  .fc_col p{
+    font-size:12px;
   }
 }
