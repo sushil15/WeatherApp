@@ -290,6 +290,9 @@ font-weight: bold;
 
 /* media query */
 @media screen and (max-width: 576px) {
+  .loader{
+    width:100%;    
+  }
   .weather_div,.forecast_div {
     margin-top:0px;
     width:100%;
