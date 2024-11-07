@@ -4,7 +4,7 @@ const Forecast = (props) => {
     const [forecastData, setForeCastData] = useState([]);
 
     const getForecastData=()=>{
-        fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${props.dataForFc.latitude}&lon=${props.dataForFc.longitude}&appid=354c90bf4df0530bbdf29f114a1ab02f`)
+        fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${props.dataForFc.latitude}&lon=${props.dataForFc.longitude}&appid=354c90bf4df0530bbdf29f114a1ab02f&units=metric`)
         // fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${props.dataForFc.latitude}&lon=${props.dataForFc.longitude}&units=metric&exclude=hourly,minutely,alerts,current&appid=4b433a565da091875434ce6fa6027df6`)
         .then((res)=>{
             return res.json();
@@ -47,24 +47,36 @@ const Forecast = (props) => {
                 </div>
             </div>
             <div className="row mt-4">
-                <div className="col-11 forecastInfo_div">
-                    <h5 className="mb-4">Next Week</h5>
-                    {
-                    forecastData?.slice(1, forecastData?.length).map((data, id)=>{
-                        return (
-                            <div className="row day_row" key={id}>
-                                <div className="col-3  fc_col ">
-                                    <p>{new Date(data.dt*1000).toDateString().split(" ")[1]+" "+
-                                    new Date(data.dt*1000).toDateString().split(" ")[2]}</p>
-                                </div>
-                                <div className="col-2  fc_col "><p>{ new Date(data.dt*1000).toDateString().split(" ")[0]}</p></div>
-                                <div className="col-2  fc_col "><img className="img-fluid fc_weather_icon" alt="weather_icon" src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}></img></div>
-                                <div className="col-2  fc_col "><p>{data.weather[0].main}</p></div>
-                                <div className="col-3  fc_col "><p>{data.main.temp_max+"/"+Number(data.main.temp_min)}<sup>0</sup>c</p></div>
-                            </div>
-                        )
-                    })
-                    }
+                <div className="col-12">
+                    <h5 className="mb-2 text-white">Next 5 Days Forcast</h5>
+                    <div className='day_row d-flex align-items-center text-center text-white'>
+                            <span className='col-4'>Date</span>
+                            <span className='col-4'>Weather</span>
+                            <span className='col-4'>Min/Max Temp</span>
+                        </div>
+                    <div className='forecastInfo_div'>
+                        {
+                            forecastData?.map((data, id)=>{
+                                let date = new Date(data.dt*1000)
+
+                                return (
+                                    <div className="d-flex day_row" key={id}>
+                                        <div className="col-4 text-center">
+                                            <span>{date.toLocaleDateString()}</span><br/>
+                                            <span>{date.toLocaleTimeString()}</span>
+                                        </div>
+                                        <div className="col-4  text-center">
+                                            <img className="img-fluid fc_weather_icon" alt="weather_icon" src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}/>
+                                            <span>{data.weather[0].main}</span>
+                                        </div>
+                                        <div className="col-4  text-center">
+                                            <span>{data.main.temp_max+"/"+Number(data.main.temp_min)}<sup>0</sup>c</span>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
             </div>
         </div>
